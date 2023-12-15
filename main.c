@@ -1,6 +1,22 @@
 #include "monty.h"
 
 bus_t bus = {NULL, NULL, NULL};
+/**
+ * isEmpty - checks whether a line is empty or not
+ * @line: the line
+ * Return: 1 if the line is empty otherwise return 0
+ */
+int isEmpty(char *line)
+{
+	while (*line)
+	{
+		if (*line != ' ' && *line != '\t' && *line != '\n' && *line != '\r')
+			return (0);
+		line++;
+	}
+
+	return (1);
+}
 
 /**
  * main - The entry function of the program
@@ -32,9 +48,12 @@ int main(int argc, char *argv[])
 	line_number = 1;
 	while (fgets(line, 1024, fp))
 	{
-		/* fgets(line, 1024, fp); */
-		bus.line_content = line;
-		execute(line_number, &top);
+		if (!isEmpty(line))
+		{
+		/*	printf("LInha: %s size: %ld\n", line, strlen(line)); */
+			bus.line_content = line;
+			execute(line_number, &top);
+		}
 		line_number++;
 	}
 

@@ -12,6 +12,7 @@ void execute(unsigned int line_number, stack_t **top)
 	int i = 0;
 
 	opcode = strtok(bus.line_content, " \t\n");
+/*	printf("opcode: %s size: %ld\n", opcode, strlen(opcode)); */
 	while (ops[i].opcode != NULL)
 	{
 		if (strcmp(ops[i].opcode, opcode) == 0)
