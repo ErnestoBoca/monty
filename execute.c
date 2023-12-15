@@ -7,7 +7,8 @@
  */
 void execute(unsigned int line_number, stack_t **top)
 {
-	instruction_t ops[] = {{"push", f_push}, {"pall", f_pall}, {NULL, NULL}};
+	instruction_t ops[] = {{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
+				{NULL, NULL}};
 	char *opcode;
 	int i = 0;
 
